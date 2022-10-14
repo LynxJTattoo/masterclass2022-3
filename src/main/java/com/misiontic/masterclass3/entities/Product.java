@@ -26,38 +26,35 @@ public class Product implements Serializable {
   @JsonIgnoreProperties("products")
   private Category category;
 
-public Integer getId() {
+  public Integer getId() {
     return id;
-}
+  }
 
-public void setId(Integer id) {
+  public void setId(Integer id) {
     this.id = id;
-}
+  }
 
-public String getName() {
+  public String getName() {
     return name;
-}
+  }
 
-public void setName(String name) {
+  public void setName(String name) {
     this.name = name;
-}
+  }
 
-public Integer getYear() {
+  public Integer getYear() {
     return year;
-}
+  }
 
-public void setYear(Integer year) {
+  public void setYear(Integer year) {
     this.year = year;
-}
+  }
 
-public Category getCategory() {
+  public Category getCategory() {
     return category;
-}
+  }
 
-public void setCategory(Category category) {
+  public void setCategory(Category category) {
     this.category = category;
-}
-
-
-  
+  }
 }
