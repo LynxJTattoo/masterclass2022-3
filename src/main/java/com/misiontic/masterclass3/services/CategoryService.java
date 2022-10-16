@@ -44,8 +44,8 @@ public class CategoryService {
         if (p.getDescription() != null) {
           q.get().setDescription(p.getDescription());
         }
-        if (p.getLibs() != null) {
-          q.get().setLibs(p.getLibs());
+        if (p.getMotorbikes() != null) {
+          q.get().setMotorbikes(p.getMotorbikes());
         }
 
         categoryRepository.save(q.get());

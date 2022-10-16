@@ -2,6 +2,8 @@ package com.misiontic.masterclass3.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,15 +13,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "library")
-public class Library implements Serializable {
+@Table(name = "motorbike")
+public class Motorbike implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
   private String name;
-  private String target;
+  private String brand;
+  private Integer year;
   private String description;
 
 
@@ -28,9 +31,32 @@ public class Library implements Serializable {
   @JsonIgnoreProperties("products")
   private Category category;
 
+  private List<Message> messages;
+  private List<Reservation> reservations;
+
 
   public Integer getId() {
     return id;
+  }
+
+
+  public List<Message> getMessages() {
+    return messages;
+  }
+
+
+  public void setMessages(List<Message> messages) {
+    this.messages = messages;
+  }
+
+
+  public List<Reservation> getReservations() {
+    return reservations;
+  }
+
+
+  public void setReservations(List<Reservation> reservations) {
+    this.reservations = reservations;
   }
 
 
@@ -44,18 +70,28 @@ public class Library implements Serializable {
   }
 
 
+  public Integer getYear() {
+    return year;
+  }
+
+
+  public void setYear(Integer year) {
+    this.year = year;
+  }
+
+
   public void setName(String name) {
     this.name = name;
   }
 
 
-  public String getTarget() {
-    return target;
+  public String getBrand() {
+    return brand;
   }
 
 
-  public void setTarget(String target) {
-    this.target = target;
+  public void setBrand(String brand) {
+    this.brand = brand;
   }
 
 

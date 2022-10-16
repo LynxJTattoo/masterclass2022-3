@@ -50,6 +50,12 @@ public class ClientService {
         if (p.getEmail() != null) {
           q.get().setEmail(p.getEmail());
         }
+        if (p.getMessages() != null) {
+          q.get().setMessages(p.getMessages());
+        }
+        if (p.getReservations() != null) {
+          q.get().setReservations(p.getReservations());
+        }
         clientRepository.save(q.get());
         return q.get();
       } else {

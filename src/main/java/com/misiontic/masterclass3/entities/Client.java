@@ -2,6 +2,8 @@ package com.misiontic.masterclass3.entities;
 
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +23,27 @@ public class Client implements Serializable {
   private Integer age;
   private String password;
   private String email;
+
+  private List<Message> messages;
+  private List<Reservation> reservations;
+
+
+  
+  public List<Message> getMessages() {
+    return messages;
+  }
+
+  public void setMessages(List<Message> messages) {
+    this.messages = messages;
+  }
+
+  public List<Reservation> getReservations() {
+    return reservations;
+  }
+
+  public void setReservations(List<Reservation> reservations) {
+    this.reservations = reservations;
+  }
 
   public Integer getIdClient() {
     return idClient;
