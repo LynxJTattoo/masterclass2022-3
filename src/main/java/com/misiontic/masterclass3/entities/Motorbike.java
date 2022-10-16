@@ -2,7 +2,6 @@ package com.misiontic.masterclass3.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,8 +30,8 @@ public class Motorbike implements Serializable {
   @JsonIgnoreProperties("products")
   private Category category;
 
-  private List<Message> messages;
-  private List<Reservation> reservations;
+  private Message messages;
+  private Reservation reservations;
 
 
   public Integer getId() {
@@ -40,22 +39,22 @@ public class Motorbike implements Serializable {
   }
 
 
-  public List<Message> getMessages() {
+  public Message getMessages() {
     return messages;
   }
 
 
-  public void setMessages(List<Message> messages) {
+  public void setMessages(Message messages) {
     this.messages = messages;
   }
 
 
-  public List<Reservation> getReservations() {
+  public Reservation getReservations() {
     return reservations;
   }
 
 
-  public void setReservations(List<Reservation> reservations) {
+  public void setReservations(Reservation reservations) {
     this.reservations = reservations;
   }
 
