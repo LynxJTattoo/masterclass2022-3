@@ -1,7 +1,8 @@
 package com.misiontic.masterclass3.services;
 
-import com.misiontic.masterclass3.entities.Category;
-import com.misiontic.masterclass3.repository.CategoryRepository;
+import com.misiontic.masterclass3.entities.Library;
+import com.misiontic.masterclass3.repository.LibraryRepository;
+
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -41,6 +41,12 @@ public class CategoryService {
         if (p.getName() != null) {
           q.get().setName(p.getName());
         }
+        if (p.getDescription() != null) {
+          q.get().setDescription(p.getDescription());
+        }
+        if (p.getLibs() != null) {
+          q.get().setLibs(p.getLibs());
+        }
 
         categoryRepository.save(q.get());
         return q.get();
