@@ -9,23 +9,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.misiontic.masterclass3.entities.Library;
 import com.misiontic.masterclass3.entities.Product;
+import com.misiontic.masterclass3.services.LibraryService;
 import com.misiontic.masterclass3.services.ProductService;
 
 @RestController
-@RequestMapping("/api/Product")
-public class ProductController {
+@RequestMapping("/api/Library")
+public class LibraryController {
     
     @Autowired
-    private ProductService productService;
+    private LibraryService libraryService;
 
     @GetMapping("/all")
-    public List<Product> getAll(){
-        return productService.getAll();
+    public List<Library> getAll(){
+        return libraryService.getAll();
     }
 
     @PostMapping("/save")
-    public Product save(@RequestBody Product p){
-        return productService.save(p);
+    public Library save(@RequestBody Library p){
+        return libraryService.save(p);
     }
 }
