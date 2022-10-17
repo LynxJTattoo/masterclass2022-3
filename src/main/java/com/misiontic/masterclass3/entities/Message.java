@@ -22,7 +22,7 @@ public class Message implements Serializable {
   
 
   @ManyToOne
-  @JoinColumn(name = "category")
+  @JoinColumn(name = "categoryId")
   @JsonIgnoreProperties("products")
   private Category category;
   private Client client;
