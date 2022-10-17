@@ -1,10 +1,7 @@
 package com.misiontic.masterclass3.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import java.io.Serializable;
-
 import javax.persistence.*;
 
 @Entity
@@ -19,17 +16,17 @@ public class Client implements Serializable {
   private Integer age;
   private String password;
   private String email;
+
   @ManyToOne
   @JoinColumn(name = "messages")
   @JsonIgnoreProperties("products")
   private Message messages;
+
   @ManyToOne
   @JoinColumn(name = "reservations")
   @JsonIgnoreProperties("products")
   private Reservation reservations;
 
-
-  
   public Message getMessages() {
     return messages;
   }

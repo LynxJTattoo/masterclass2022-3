@@ -2,7 +2,6 @@ package com.misiontic.masterclass3.services;
 
 import com.misiontic.masterclass3.entities.Reservation;
 import com.misiontic.masterclass3.repository.ReservationRepository;
-
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,9 @@ public class ReservationService {
     if (p.getIdReservation() == null) {
       return reservationRepository.save(p);
     } else {
-      Optional<Reservation> e = reservationRepository.getReservation(p.getIdReservation());
+      Optional<Reservation> e = reservationRepository.getReservation(
+        p.getIdReservation()
+      );
       if (e.isPresent()) {
         return p;
       } else {
@@ -37,7 +38,9 @@ public class ReservationService {
 
   public Reservation update(Reservation p) {
     if (p.getIdReservation() != null) {
-      Optional<Reservation> q = reservationRepository.getReservation(p.getIdReservation());
+      Optional<Reservation> q = reservationRepository.getReservation(
+        p.getIdReservation()
+      );
       if (q.isPresent()) {
         if (p.getStartDate() != null) {
           q.get().setStartDate(p.getStartDate());
@@ -70,13 +73,12 @@ public class ReservationService {
     }
   }
 
-  public boolean  delete(int id){
-
-    boolean flag=false;
-    Optional<Reservation>p=reservationRepository.getReservation(id);
-    if(p.isPresent()){
-        reservationRepository.delete(p.get());
-        flag= true;
+  public boolean delete(int id) {
+    boolean flag = false;
+    Optional<Reservation> p = reservationRepository.getReservation(id);
+    if (p.isPresent()) {
+      reservationRepository.delete(p.get());
+      flag = true;
     }
 
     return flag;

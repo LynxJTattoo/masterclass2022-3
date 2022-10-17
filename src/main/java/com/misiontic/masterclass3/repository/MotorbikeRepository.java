@@ -2,7 +2,6 @@ package com.misiontic.masterclass3.repository;
 
 import com.misiontic.masterclass3.entities.Motorbike;
 import com.misiontic.masterclass3.repository.crudRepository.MotorbikeCrudRepository;
-
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +28,4 @@ public class MotorbikeRepository {
   public void delete(Motorbike c) {
     motorbikeCrudRepository.delete(c);
   }
-
-
 }

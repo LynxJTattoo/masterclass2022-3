@@ -2,7 +2,6 @@ package com.misiontic.masterclass3.services;
 
 import com.misiontic.masterclass3.entities.Motorbike;
 import com.misiontic.masterclass3.repository.MotorbikeRepository;
-
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +60,6 @@ public class MotorbikeService {
           q.get().setReservations(p.getReservations());
         }
 
-
         motorbikeRepository.save(q.get());
         return q.get();
       } else {
@@ -72,13 +70,12 @@ public class MotorbikeService {
     }
   }
 
-  public boolean  delete(int id){
-
-    boolean flag=false;
-    Optional<Motorbike>p=motorbikeRepository.getMotorbike(id);
-    if(p.isPresent()){
-        motorbikeRepository.delete(p.get());
-        flag= true;
+  public boolean delete(int id) {
+    boolean flag = false;
+    Optional<Motorbike> p = motorbikeRepository.getMotorbike(id);
+    if (p.isPresent()) {
+      motorbikeRepository.delete(p.get());
+      flag = true;
     }
 
     return flag;

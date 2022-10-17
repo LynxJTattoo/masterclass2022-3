@@ -17,59 +17,39 @@ public class Category implements Serializable {
 
   private String description;
 
-
-
   @OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "category")
   @JsonIgnoreProperties("category")
   private List<Motorbike> motorbikes;
 
-
-
-public Integer getId() {
+  public Integer getId() {
     return id;
-}
+  }
 
-
-
-public void setId(Integer id) {
+  public void setId(Integer id) {
     this.id = id;
-}
+  }
 
-
-
-public String getName() {
+  public String getName() {
     return name;
-}
+  }
 
-
-
-public void setName(String name) {
+  public void setName(String name) {
     this.name = name;
-}
+  }
 
-
-
-public String getDescription() {
+  public String getDescription() {
     return description;
-}
+  }
 
-
-
-public void setDescription(String description) {
+  public void setDescription(String description) {
     this.description = description;
-}
+  }
 
-
-
-public List<Motorbike> getMotorbikes() {
+  public List<Motorbike> getMotorbikes() {
     return motorbikes;
-}
+  }
 
-
-
-public void setMotorbikes(List<Motorbike> motorbikes) {
+  public void setMotorbikes(List<Motorbike> motorbikes) {
     this.motorbikes = motorbikes;
-}
-
-
+  }
 }
