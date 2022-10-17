@@ -26,11 +26,17 @@ public class Motorbike implements Serializable {
 
 
   @ManyToOne
-  @JoinColumn(name = "categoryId")
+  @JoinColumn(name = "category")
   @JsonIgnoreProperties("products")
   private Category category;
 
+  @ManyToOne
+  @JoinColumn(name = "messages")
+  @JsonIgnoreProperties("products")
   private Message messages;
+  @ManyToOne
+  @JoinColumn(name = "reservations")
+  @JsonIgnoreProperties("products")
   private Reservation reservations;
 
 

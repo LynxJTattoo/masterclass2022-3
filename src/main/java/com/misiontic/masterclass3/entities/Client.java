@@ -1,14 +1,11 @@
 package com.misiontic.masterclass3.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "client")
@@ -22,8 +19,13 @@ public class Client implements Serializable {
   private Integer age;
   private String password;
   private String email;
-
+  @ManyToOne
+  @JoinColumn(name = "messages")
+  @JsonIgnoreProperties("products")
   private Message messages;
+  @ManyToOne
+  @JoinColumn(name = "reservations")
+  @JsonIgnoreProperties("products")
   private Reservation reservations;
 
 

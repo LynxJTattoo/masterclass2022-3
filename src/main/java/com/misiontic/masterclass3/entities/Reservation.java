@@ -1,13 +1,10 @@
 package com.misiontic.masterclass3.entities;
 
 
-import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.Table;
+import java.io.Serializable;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "reservation")
@@ -21,9 +18,21 @@ public class Reservation implements Serializable {
   private Integer startDate;
   private Integer devolutionDate;
   private String status;
+  @ManyToOne
+  @JoinColumn(name = "motorbike")
+  @JsonIgnoreProperties("products")
   private Motorbike motorbike;
+  @ManyToOne
+  @JoinColumn(name = "category")
+  @JsonIgnoreProperties("products")
   private Category category;
+  @ManyToOne
+  @JoinColumn(name = "messages")
+  @JsonIgnoreProperties("products")
   private Message messages;
+  @ManyToOne
+  @JoinColumn(name = "client")
+  @JsonIgnoreProperties("products")
   private Client client;
   
   public Integer getIdReservation() {

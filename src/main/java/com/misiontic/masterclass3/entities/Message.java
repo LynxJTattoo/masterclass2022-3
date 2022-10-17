@@ -22,10 +22,16 @@ public class Message implements Serializable {
   
 
   @ManyToOne
-  @JoinColumn(name = "categoryId")
+  @JoinColumn(name = "category")
   @JsonIgnoreProperties("products")
   private Category category;
+  @ManyToOne
+  @JoinColumn(name = "client")
+  @JsonIgnoreProperties("products")
   private Client client;
+  @ManyToOne
+  @JoinColumn(name = "motorbike")
+  @JsonIgnoreProperties("products")
   private Motorbike motorbike;
   
   public Integer getIdMessage() {
