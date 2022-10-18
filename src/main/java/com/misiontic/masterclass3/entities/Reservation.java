@@ -17,23 +17,23 @@ public class Reservation implements Serializable {
   private String status;
 
   @ManyToOne
-  @JoinColumn(name = "motorbike")
-  @JsonIgnoreProperties("products")
+  @JoinColumn(name = "motorbikeId")
+  @JsonIgnoreProperties("reservations")
   private Motorbike motorbike;
 
   @ManyToOne
-  @JoinColumn(name = "category")
-  @JsonIgnoreProperties("products")
+  @JoinColumn(name = "categoryId")
+  @JsonIgnoreProperties("reservations")
   private Category category;
 
   @ManyToOne
-  @JoinColumn(name = "messages")
-  @JsonIgnoreProperties("products")
+  @JoinColumn(name = "messagesId")
+  @JsonIgnoreProperties("reservations")
   private Message messages;
 
   @ManyToOne
-  @JoinColumn(name = "client")
-  @JsonIgnoreProperties("products")
+  @JoinColumn(name = "clientId")
+  @JsonIgnoreProperties("reservations")
   private Client client;
 
   public Integer getIdReservation() {
