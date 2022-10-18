@@ -21,18 +21,18 @@ public class Message implements Serializable {
   private String messageText;
 
   @ManyToOne
-  @JoinColumn(name = "category")
-  @JsonIgnoreProperties("products")
+  @JoinColumn(name = "categoryId")
+  @JsonIgnoreProperties("messages")
   private Category category;
 
   @ManyToOne
-  @JoinColumn(name = "client")
-  @JsonIgnoreProperties("products")
+  @JoinColumn(name = "clientIdClient")
+  @JsonIgnoreProperties("messages")
   private Client client;
 
   @ManyToOne
   @JoinColumn(name = "motorbike")
-  @JsonIgnoreProperties("products")
+  @JsonIgnoreProperties("messages")
   private Motorbike motorbike;
 
   public Integer getIdMessage() {
