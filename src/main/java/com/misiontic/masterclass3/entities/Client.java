@@ -1,6 +1,6 @@
 package com.misiontic.masterclass3.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 
 
@@ -13,20 +13,16 @@ public class Client implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer idClient;
-
+  private String email;
+  private String password;
   private String name;
   private Integer age;
-  private String password;
-  private String email;
 
-  @ManyToOne
-  @JoinColumn(name = "messageId")
-  @JsonIgnoreProperties("client")
+ 
+
+
   private Message message;
 
-  @ManyToOne
-  @JoinColumn(name = "reservationId")
-  @JsonIgnoreProperties("client")
   private Reservation reservations;
 
   public Message getMessages() {
