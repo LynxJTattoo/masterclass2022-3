@@ -21,11 +21,11 @@ public class ClientRepository {
     return clientCrudRepository.findById(id);
   }
 
-  public Client save(Client p) {
-    return clientCrudRepository.save(p);
+  public Client save(Client a) {
+    return clientCrudRepository.save(a);
   }
 
-  public void delete(Client p) {
-    clientCrudRepository.delete(p);
+  public void delete(Client a) {
+    clientCrudRepository.delete(a);
   }
 }

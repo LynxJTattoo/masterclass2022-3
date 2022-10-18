@@ -26,7 +26,7 @@ public class ClientController {
 
   @PostMapping("/save")
   @ResponseStatus(HttpStatus.CREATED)
-  public Client save(@RequestBody Client p) {
-    return clientService.save(p);
+  public Client save(@RequestBody Client a) {
+    return clientService.save(a);
   }
 }

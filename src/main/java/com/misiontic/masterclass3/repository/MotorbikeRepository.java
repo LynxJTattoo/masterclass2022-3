@@ -21,11 +21,11 @@ public class MotorbikeRepository {
     return motorbikeCrudRepository.findById(id);
   }
 
-  public Motorbike save(Motorbike c) {
-    return motorbikeCrudRepository.save(c);
+  public Motorbike save(Motorbike n) {
+    return motorbikeCrudRepository.save(n);
   }
 
-  public void delete(Motorbike c) {
-    motorbikeCrudRepository.delete(c);
+  public void delete(Motorbike n) {
+    motorbikeCrudRepository.delete(n);
   }
 }

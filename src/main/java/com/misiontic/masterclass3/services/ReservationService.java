@@ -21,63 +21,63 @@ public class ReservationService {
     return reservationRepository.getReservation(id);
   }
 
-  public Reservation save(Reservation p) {
-    if (p.getIdReservation() == null) {
-      return reservationRepository.save(p);
+  public Reservation save(Reservation r) {
+    if (r.getIdReservation() == null) {
+      return reservationRepository.save(r);
     } else {
       Optional<Reservation> e = reservationRepository.getReservation(
-        p.getIdReservation()
+        r.getIdReservation()
       );
       if (e.isPresent()) {
-        return p;
+        return r;
       } else {
-        return reservationRepository.save(p);
+        return reservationRepository.save(r);
       }
     }
   }
 
-  public Reservation update(Reservation p) {
-    if (p.getIdReservation() != null) {
+  public Reservation update(Reservation r) {
+    if (r.getIdReservation() != null) {
       Optional<Reservation> q = reservationRepository.getReservation(
-        p.getIdReservation()
+        r.getIdReservation()
       );
       if (q.isPresent()) {
-        if (p.getStartDate() != null) {
-          q.get().setStartDate(p.getStartDate());
+        if (r.getStartDate() != null) {
+          q.get().setStartDate(r.getStartDate());
         }
-        if (p.getDevolutionDate() != null) {
-          q.get().setDevolutionDate(p.getDevolutionDate());
+        if (r.getDevolutionDate() != null) {
+          q.get().setDevolutionDate(r.getDevolutionDate());
         }
-        if (p.getStatus() != null) {
-          q.get().setStatus(p.getStatus());
+        if (r.getStatus() != null) {
+          q.get().setStatus(r.getStatus());
         }
-        if (p.getMotorbike() != null) {
-          q.get().setMotorbike(p.getMotorbike());
+        if (r.getMotorbike() != null) {
+          q.get().setMotorbike(r.getMotorbike());
         }
-        if (p.getCategory() != null) {
-          q.get().setCategory(p.getCategory());
+        if (r.getCategory() != null) {
+          q.get().setCategory(r.getCategory());
         }
-        if (p.getMessages() != null) {
-          q.get().setMessages(p.getMessages());
+        if (r.getMessages() != null) {
+          q.get().setMessages(r.getMessages());
         }
-        if (p.getClient() != null) {
-          q.get().setClient(p.getClient());
+        if (r.getClient() != null) {
+          q.get().setClient(r.getClient());
         }
         reservationRepository.save(q.get());
         return q.get();
       } else {
-        return p;
+        return r;
       }
     } else {
-      return p;
+      return r;
     }
   }
 
   public boolean delete(int id) {
     boolean flag = false;
-    Optional<Reservation> p = reservationRepository.getReservation(id);
-    if (p.isPresent()) {
-      reservationRepository.delete(p.get());
+    Optional<Reservation> r = reservationRepository.getReservation(id);
+    if (r.isPresent()) {
+      reservationRepository.delete(r.get());
       flag = true;
     }
 

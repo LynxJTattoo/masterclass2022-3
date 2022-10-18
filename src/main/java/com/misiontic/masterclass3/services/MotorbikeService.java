@@ -21,60 +21,60 @@ public class MotorbikeService {
     return motorbikeRepository.getMotorbike(id);
   }
 
-  public Motorbike save(Motorbike p) {
-    if (p.getId() == null) {
-      return motorbikeRepository.save(p);
+  public Motorbike save(Motorbike n) {
+    if (n.getId() == null) {
+      return motorbikeRepository.save(n);
     } else {
-      Optional<Motorbike> e = motorbikeRepository.getMotorbike(p.getId());
+      Optional<Motorbike> e = motorbikeRepository.getMotorbike(n.getId());
       if (e.isPresent()) {
-        return p;
+        return n;
       } else {
-        return motorbikeRepository.save(p);
+        return motorbikeRepository.save(n);
       }
     }
   }
 
-  public Motorbike update(Motorbike p) {
-    if (p.getId() != null) {
-      Optional<Motorbike> q = motorbikeRepository.getMotorbike(p.getId());
+  public Motorbike update(Motorbike n) {
+    if (n.getId() != null) {
+      Optional<Motorbike> q = motorbikeRepository.getMotorbike(n.getId());
       if (q.isPresent()) {
-        if (p.getName() != null) {
-          q.get().setName(p.getName());
+        if (n.getName() != null) {
+          q.get().setName(n.getName());
         }
-        if (p.getDescription() != null) {
-          q.get().setDescription(p.getDescription());
+        if (n.getDescription() != null) {
+          q.get().setDescription(n.getDescription());
         }
-        if (p.getBrand() != null) {
-          q.get().setBrand(p.getBrand());
+        if (n.getBrand() != null) {
+          q.get().setBrand(n.getBrand());
         }
-        if (p.getYear() != null) {
-          q.get().setYear(p.getYear());
+        if (n.getYear() != null) {
+          q.get().setYear(n.getYear());
         }
-        if (p.getCategory() != null) {
-          q.get().setCategory(p.getCategory());
+        if (n.getCategory() != null) {
+          q.get().setCategory(n.getCategory());
         }
-        if (p.getMessages() != null) {
-          q.get().setMessages(p.getMessages());
+        if (n.getMessages() != null) {
+          q.get().setMessages(n.getMessages());
         }
-        if (p.getReservations() != null) {
-          q.get().setReservations(p.getReservations());
+        if (n.getReservations() != null) {
+          q.get().setReservations(n.getReservations());
         }
 
         motorbikeRepository.save(q.get());
         return q.get();
       } else {
-        return p;
+        return n;
       }
     } else {
-      return p;
+      return n;
     }
   }
 
   public boolean delete(int id) {
     boolean flag = false;
-    Optional<Motorbike> p = motorbikeRepository.getMotorbike(id);
-    if (p.isPresent()) {
-      motorbikeRepository.delete(p.get());
+    Optional<Motorbike> n = motorbikeRepository.getMotorbike(id);
+    if (n.isPresent()) {
+      motorbikeRepository.delete(n.get());
       flag = true;
     }
 

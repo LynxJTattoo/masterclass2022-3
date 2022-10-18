@@ -21,48 +21,48 @@ public class CategoryService {
     return categoryRepository.getCategory(id);
   }
 
-  public Category save(Category p) {
-    if (p.getId() == null) {
-      return categoryRepository.save(p);
+  public Category save(Category c) {
+    if (c.getId() == null) {
+      return categoryRepository.save(c);
     } else {
-      Optional<Category> e = categoryRepository.getCategory(p.getId());
+      Optional<Category> e = categoryRepository.getCategory(c.getId());
       if (e.isPresent()) {
-        return p;
+        return c;
       } else {
-        return categoryRepository.save(p);
+        return categoryRepository.save(c);
       }
     }
   }
 
-  public Category update(Category p) {
-    if (p.getId() != null) {
-      Optional<Category> q = categoryRepository.getCategory(p.getId());
+  public Category update(Category c) {
+    if (c.getId() != null) {
+      Optional<Category> q = categoryRepository.getCategory(c.getId());
       if (q.isPresent()) {
-        if (p.getName() != null) {
-          q.get().setName(p.getName());
+        if (c.getName() != null) {
+          q.get().setName(c.getName());
         }
-        if (p.getDescription() != null) {
-          q.get().setDescription(p.getDescription());
+        if (c.getDescription() != null) {
+          q.get().setDescription(c.getDescription());
         }
-        if (p.getMotorbikes() != null) {
-          q.get().setMotorbikes(p.getMotorbikes());
+        if (c.getMotorbikes() != null) {
+          q.get().setMotorbikes(c.getMotorbikes());
         }
 
         categoryRepository.save(q.get());
         return q.get();
       } else {
-        return p;
+        return c;
       }
     } else {
-      return p;
+      return c;
     }
   }
 
   public boolean delete(int id) {
     boolean flag = false;
-    Optional<Category> p = categoryRepository.getCategory(id);
-    if (p.isPresent()) {
-      categoryRepository.delete(p.get());
+    Optional<Category> c = categoryRepository.getCategory(id);
+    if (c.isPresent()) {
+      categoryRepository.delete(c.get());
       flag = true;
     }
 

@@ -26,7 +26,7 @@ public class MotorbikeController {
 
   @PostMapping("/save")
   @ResponseStatus(HttpStatus.CREATED)
-  public Motorbike save(@RequestBody Motorbike p) {
-    return motorbikeService.save(p);
+  public Motorbike save(@RequestBody Motorbike n) {
+    return motorbikeService.save(n);
   }
 }

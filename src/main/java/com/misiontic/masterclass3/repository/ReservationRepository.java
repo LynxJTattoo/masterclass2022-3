@@ -21,11 +21,11 @@ public class ReservationRepository {
     return reservationCrudRepository.findById(id);
   }
 
-  public Reservation save(Reservation p) {
-    return reservationCrudRepository.save(p);
+  public Reservation save(Reservation r) {
+    return reservationCrudRepository.save(r);
   }
 
-  public void delete(Reservation p) {
-    reservationCrudRepository.delete(p);
+  public void delete(Reservation r) {
+    reservationCrudRepository.delete(r);
   }
 }

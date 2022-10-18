@@ -21,56 +21,56 @@ public class ClientService {
     return clientRepository.getClient(id);
   }
 
-  public Client save(Client p) {
-    if (p.getIdClient() == null) {
-      return clientRepository.save(p);
+  public Client save(Client a) {
+    if (a.getIdClient() == null) {
+      return clientRepository.save(a);
     } else {
-      Optional<Client> e = clientRepository.getClient(p.getIdClient());
+      Optional<Client> e = clientRepository.getClient(a.getIdClient());
       if (e.isPresent()) {
-        return p;
+        return a;
       } else {
-        return clientRepository.save(p);
+        return clientRepository.save(a);
       }
     }
   }
 
-  public Client update(Client p) {
-    if (p.getIdClient() != null) {
-      Optional<Client> q = clientRepository.getClient(p.getIdClient());
+  public Client update(Client a) {
+    if (a.getIdClient() != null) {
+      Optional<Client> q = clientRepository.getClient(a.getIdClient());
       if (q.isPresent()) {
-        if (p.getName() != null) {
-          q.get().setName(p.getName());
+        if (a.getName() != null) {
+          q.get().setName(a.getName());
         }
-        if (p.getAge() != null) {
-          q.get().setAge(p.getAge());
+        if (a.getAge() != null) {
+          q.get().setAge(a.getAge());
         }
-        if (p.getPassword() != null) {
-          q.get().setPassword(p.getPassword());
+        if (a.getPassword() != null) {
+          q.get().setPassword(a.getPassword());
         }
-        if (p.getEmail() != null) {
-          q.get().setEmail(p.getEmail());
+        if (a.getEmail() != null) {
+          q.get().setEmail(a.getEmail());
         }
-        if (p.getMessages() != null) {
-          q.get().setMessages(p.getMessages());
+        if (a.getMessages() != null) {
+          q.get().setMessages(a.getMessages());
         }
-        if (p.getReservations() != null) {
-          q.get().setReservations(p.getReservations());
+        if (a.getReservations() != null) {
+          q.get().setReservations(a.getReservations());
         }
         clientRepository.save(q.get());
         return q.get();
       } else {
-        return p;
+        return a;
       }
     } else {
-      return p;
+      return a;
     }
   }
 
   public boolean delete(int id) {
     boolean flag = false;
-    Optional<Client> p = clientRepository.getClient(id);
-    if (p.isPresent()) {
-      clientRepository.delete(p.get());
+    Optional<Client> a = clientRepository.getClient(id);
+    if (a.isPresent()) {
+      clientRepository.delete(a.get());
       flag = true;
     }
 
