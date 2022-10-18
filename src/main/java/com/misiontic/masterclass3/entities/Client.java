@@ -19,7 +19,7 @@ public class Client implements Serializable {
 
   @ManyToOne
   @JoinColumn(name = "messages")
-  @JsonIgnoreProperties("products")
+  @JsonIgnoreProperties("idMessage,messageText")
   private Message messages;
 
   @ManyToOne
