@@ -2,6 +2,8 @@ package com.misiontic.masterclass3.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,29 +19,29 @@ public class Client implements Serializable {
   private String password;
   private String email;
 
-  @ManyToOne
-  @JoinColumn(name = "messages")
-  @JsonIgnoreProperties("idMessage,messageText")
-  private Message messages;
+  @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
+  @JsonIgnoreProperties("client")
+  private List<Message> messages;
 
-  @ManyToOne
-  @JoinColumn(name = "reservations")
-  @JsonIgnoreProperties("products")
-  private Reservation reservations;
 
-  public Message getMessages() {
+
+  @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
+  @JsonIgnoreProperties("client")
+  private List<Reservation> reservations;
+
+  public List<Message> getMessages() {
     return messages;
   }
 
-  public void setMessages(Message messages) {
+  public void setMessages(List<Message> messages) {
     this.messages = messages;
   }
 
-  public Reservation getReservations() {
+  public List<Reservation> getReservations() {
     return reservations;
   }
 
-  public void setReservations(Reservation reservations) {
+  public void setReservations(List<Reservation> reservations) {
     this.reservations = reservations;
   }
 
