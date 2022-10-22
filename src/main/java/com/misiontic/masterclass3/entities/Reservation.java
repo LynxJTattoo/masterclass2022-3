@@ -14,27 +14,19 @@ public class Reservation implements Serializable {
 
   private Integer startDate;
   private Integer devolutionDate;
-  private String status;
+  private String status = "created";
 
   @ManyToOne
-  @JoinColumn(name = "motorbikeId")
+  @JoinColumn(name = "id")
   @JsonIgnoreProperties("reservations")
   private Motorbike motorbike;
 
   @ManyToOne
-  @JoinColumn(name = "categoryId")
-  @JsonIgnoreProperties("reservations")
-  private Category category;
-
-  @ManyToOne
-  @JoinColumn(name = "messagesId")
-  @JsonIgnoreProperties("reservations")
-  private Message messages;
-
-  @ManyToOne
-  @JoinColumn(name = "clientId")
-  @JsonIgnoreProperties("reservations")
+  @JoinColumn(name = "idClient")
+  @JsonIgnoreProperties({ "reservations", "messages" })
   private Client client;
+
+  private String score;
 
   public Integer getIdReservation() {
     return idReservation;
@@ -76,27 +68,19 @@ public class Reservation implements Serializable {
     this.motorbike = motorbike;
   }
 
-  public Category getCategory() {
-    return category;
-  }
-
-  public void setCategory(Category category) {
-    this.category = category;
-  }
-
-  public Message getMessages() {
-    return messages;
-  }
-
-  public void setMessages(Message messages) {
-    this.messages = messages;
-  }
-
   public Client getClient() {
     return client;
   }
 
   public void setClient(Client client) {
     this.client = client;
+  }
+
+  public String getScore() {
+    return score;
+  }
+
+  public void setScore(String score) {
+    this.score = score;
   }
 }

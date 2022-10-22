@@ -54,12 +54,7 @@ public class ReservationService {
         if (r.getMotorbike() != null) {
           q.get().setMotorbike(r.getMotorbike());
         }
-        if (r.getCategory() != null) {
-          q.get().setCategory(r.getCategory());
-        }
-        if (r.getMessages() != null) {
-          q.get().setMessages(r.getMessages());
-        }
+
         if (r.getClient() != null) {
           q.get().setClient(r.getClient());
         }

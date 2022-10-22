@@ -47,9 +47,7 @@ public class MessageService {
         if (m.getMotorbike() != null) {
           q.get().setMotorbike(m.getMotorbike());
         }
-        if (m.getCategory() != null) {
-          q.get().setCategory(m.getCategory());
-        }
+
         messageRepository.save(q.get());
         return q.get();
       } else {

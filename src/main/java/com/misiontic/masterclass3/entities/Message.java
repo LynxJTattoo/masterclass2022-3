@@ -21,18 +21,13 @@ public class Message implements Serializable {
   private String messageText;
 
   @ManyToOne
-  @JoinColumn(name = "categoryId")
-  @JsonIgnoreProperties("messages")
-  private Category category;
-
-  @ManyToOne
   @JoinColumn(name = "clientId")
-  @JsonIgnoreProperties("messages")
+  @JsonIgnoreProperties({ "messages", "reservations" })
   private Client client;
 
   @ManyToOne
-  @JoinColumn(name = "motorbikeId")
-  @JsonIgnoreProperties("messages")
+  @JoinColumn(name = "id")
+  @JsonIgnoreProperties({ "messages", "reservations" })
   private Motorbike motorbike;
 
   public Integer getIdMessage() {
@@ -49,14 +44,6 @@ public class Message implements Serializable {
 
   public void setMessageText(String messageText) {
     this.messageText = messageText;
-  }
-
-  public Category getCategory() {
-    return category;
-  }
-
-  public void setCategory(Category category) {
-    this.category = category;
   }
 
   public Client getClient() {
